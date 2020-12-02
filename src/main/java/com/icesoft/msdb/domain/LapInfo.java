@@ -8,6 +8,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class LapInfo {
 
     private static final Pattern LAPTIME_REGEX = Pattern.compile("(([0-9]+)(:|'))?(([0-9]+)(:|'))?([0-9]+)\\.([0-9]+)");

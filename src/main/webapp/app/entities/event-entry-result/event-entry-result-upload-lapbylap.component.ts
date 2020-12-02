@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { JhiEventManager, JhiAlertService, JhiDataUtils } from 'ng-jhipster';
 
+import { EventEntryUploadResultsComponent } from './event-entry-result-upload.component';
+
 import { Imports, ImportsService } from 'app/shared/services/imports.service';
 
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -21,7 +23,7 @@ export class EventEntryResultUploadLapByLapComponent implements OnInit {
     private importsService: ImportsService,
     private eventManager: JhiEventManager,
     private fb: FormBuilder,
-    private dialogRef: MatDialogRef<EventEntryResultUploadLapByLapComponent>,
+    private dialogRef: MatDialogRef<EventEntryUploadResultsComponent>,
     @Inject(MAT_DIALOG_DATA) data: any
   ) {
     this.imports = new Imports();

@@ -6,6 +6,7 @@ import { DatePipe } from '@angular/common';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared/util/request-util';
 import { IEventEdition } from 'app/shared/model/event-edition.model';
+import { IEventSession } from 'app/shared/model/event-session.model';
 import { IDriverLap } from 'app/shared/model/driver-lap.model';
 
 type EntityResponseType = HttpResponse<IEventEdition>;
@@ -58,6 +59,10 @@ export class EventEditionService {
 
   findDriversBestTimes(eventId: number): Observable<any[]> {
     return this.http.get<any[]>(`${this.resourceUrl}/${eventId}/bestTimes`);
+  }
+
+  findRaces(id: number): Observable<IEventSession[]> {
+    return this.http.get<IEventSession[]>(`${this.resourceUrl}/${id}/sessions/races`);
   }
 
   hasLapsData(eventId: number): Observable<any[]> {

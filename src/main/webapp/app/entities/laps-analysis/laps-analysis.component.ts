@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
 
 import { EventEditionService } from '../event-edition/event-edition.service';
-import { EventEdition } from 'app/shared/model/event-edition.model';
 import { IEventSession } from 'app/shared/model/event-session.model';
-import { IEventEntry } from 'app/shared/model/event-entry.model';
-import { SessionType } from 'app/shared/enumerations/sessionType.enum';
 
 @Component({
   selector: 'jhi-laps-analysis',
@@ -12,16 +12,12 @@ import { SessionType } from 'app/shared/enumerations/sessionType.enum';
   styleUrls: ['lapsAnalysis.scss']
 })
 export class LapsAnalysisComponent implements OnInit {
-  @Input() eventEdition: EventEdition;
-  @Input() eventSessions: IEventSession[];
-  @Input() eventEntries: IEventEntry[];
+  @Input() eventEditionId: number;
   races: IEventSession[];
 
   constructor(private eventEditionService: EventEditionService) {}
 
   ngOnInit() {
-    this.races = this.eventSessions.filter(
-      session => session.sessionType === SessionType.race || session.sessionType === SessionType.qualifyingRace
-    );
+    this.eventEditionService.findRaces(this.eventEditionId).subscribe(races => (this.races = races));
   }
 }

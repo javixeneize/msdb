@@ -16,6 +16,7 @@ const ENTITY_STATES = [...lapsAnalysisRoute];
   imports: [MotorsportsDatabaseSharedModule, ChartModule, CheckboxModule, RouterModule.forChild(ENTITY_STATES)],
   exports: [LapsAnalysisComponent, RaceDataComponent],
   declarations: [LapsAnalysisComponent, RaceDataComponent],
+  entryComponents: [LapsAnalysisComponent, RaceDataComponent],
   providers: []
 })
 export class MotorsportsDatabaseLapsAnalysisModule {}
